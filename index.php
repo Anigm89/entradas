@@ -17,7 +17,7 @@
         <h1>Entradas</h1>
         <h1>1. Compra tus entradas con vividseats</h1>
         <?php
-        include('./src/vividseats.php');
+        include('./src/vividseat.php');
         ?> 
         <h1>2. Compra tus entradas a través de seatgeek</h1>
         <?php
