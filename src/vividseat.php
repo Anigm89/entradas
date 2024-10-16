@@ -37,7 +37,7 @@
 ?>
 
 <div>
-    <h2>Evento: <?= $title ?></h2>
+    <h4>Evento: <?= htmlspecialchars($title) ?></h4>
     
         <?php
             if($categories){

@@ -14,7 +14,7 @@
 
     ?>
     <section>
-        <h1>Entradas</h1>
+        <h1 class="title">Entradas</h1>
         <h1>1. Compra tus entradas con vividseats</h1>
         <?php
         include('./src/vividseat.php');

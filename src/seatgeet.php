@@ -36,13 +36,13 @@
                         <?php $imageShown = true; // La imagen ya se mostró, no se vuelve a mostrar ?>
                     <?php endif; 
                 endforeach; 
-                if ($imageShown) break; // Salir del loop después de mostrar la imagen
+                if ($imageShown) break; 
             endforeach; 
         endif; 
         ?>
     </div>
     <div class="izq">
-        <p>Próximos conciertos de Mago de Oz</p>
+        <p class="subtitle">Próximos conciertos de Mago de Oz</p>
         <ul>
             <?php if (isset($data['events']) && !empty($data['events'])){ ?>
                 <?php foreach($data['events'] as $event) : ?>
@@ -68,7 +68,6 @@
                                 echo 'Lugar no disponible';
                             }  ?>
                         </p>
-                      <!--  <img src="<?= isset($performer["image"]) ? htmlspecialchars($performer["image"]) : 'imagen_no_disponible.jpg' ?>" alt="Imagen de <?= htmlspecialchars($performer["name"]) ?>">  -->
                         <a href="<?= htmlspecialchars($event['url']) ?>" target="_blank">Comprar entradas</a>
                     </li>
                     <?php endforeach ?>
