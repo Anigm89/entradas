@@ -45,18 +45,18 @@
                     echo'<p> Sección:'. $category->plaintext . '</p>';
                 }
                 // Dentro de cada sección, busco las filas y los precios
-                 $rows = $category->parent()->parent()->find('div.styles_listingRowContainer__d8WLZ');
+                 $rows = $category->find('div.styles_listingRowContainer__d8WLZ');
 
                 foreach($rows as $row){
                     $rowSection = $row->find('span.styles_rowText__0qCtO', 0)->plaintext ?? 'No disponible';
                     $price = $row->find('span[data-testid=listing-price]', 0)->plaintext ?? 'No disponible';
-                    echo'<p> Fila:'. $rowSection. '</p>';
-                    echo'<p> precio:'. $price . '</p>';
+                    echo'<p> Fila:'. htmlspecialchars($rowSection). '</p>';
+                    echo'<p> precio:'. htmlspecialchars($price) . '</p>';
                 }
 
             }
             else{
-                echo 'No se ha encontrado información sobre las entradas';
+                echo '<p> No se ha encontrado información sobre las entradas </p>';
             }
         ?>
     
