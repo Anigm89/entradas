@@ -22,8 +22,9 @@
 
         if ($http_status !== 200) {
             echo "Error al acceder a la URL: Código de respuesta HTTP " . $http_status;
+            return [false, null];  // Retorna un estado falso pero sigue ejecutándose
         }
-        return [$http_status, $response];
+        return [true, $response];  // Retorna éxito y la respuesta
     }
 
 ?>

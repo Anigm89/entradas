@@ -18,11 +18,12 @@
     // Cargo el HTML en el DOM
     $dom = str_get_html($html);
 
-        //echo htmlspecialchars($html);
-        if (!$dom) {
-            echo "Error al cargar el DOM: " . htmlspecialchars($html);
-            exit;
-        }
+       // var_dump($html);
+       // echo htmlspecialchars($html);
+    if (!$dom) {
+        echo "Error al cargar el DOM: " . htmlspecialchars($html);
+        exit;
+    }
     //saco el titulo del evento del meta data
     $metaTitle = $dom->find('meta[property=og:title]', 0);
     $title = $metaTitle ? $metaTitle->content : 'No encontrado';
