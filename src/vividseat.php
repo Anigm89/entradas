@@ -1,31 +1,23 @@
 <?php
+
+//llamo a la funcion de inicio de curl para hacer scraping 
     require_once('simple_html_dom.php');
+    require_once('config/request_curl.php');
 
     $url='https://www.vividseats.com/real-madrid-tickets-estadio-santiago-bernabeu-12-22-2024--sports-soccer/production/5045935';
-
-    //inicio curl
-    $ch = curl_init($url);
-    
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
-    curl_setopt($ch, CURLOPT_REFERER, 'https://www.vividseats.com');  // Referer
-    curl_setopt($ch, CURLOPT_COOKIEJAR, 'cookies.txt'); // Guarda las cookies
-    curl_setopt($ch, CURLOPT_COOKIEFILE, 'cookies.txt'); // Usa las cookies guardadas
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Sigue redirecciones
-
-    $html = curl_exec($ch);
-    
-    if(curl_errno($ch)){
-        echo "Error en curl: ". curl_error($ch);
-        exit;
-    }   
-    curl_close($ch);
+    $options = [
+        CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        CURLOPT_REFERER => 'https://www.vividseats.com',
+        CURLOPT_COOKIEJAR => 'cookies.txt',
+        CURLOPT_COOKIEFILE => 'cookies.txt',
+        CURLOPT_FOLLOWLOCATION => true
+    ];
+    list($http_status, $html) = makeCurlRequest($url, $options);
 
     // Cargo el HTML en el DOM
     $dom = str_get_html($html);
 
-
-        //echo htmlspecialchars($html)
+        //echo htmlspecialchars($html);
 
     //saco el titulo del evento del meta data
     $metaTitle = $dom->find('meta[property=og:title]', 0);

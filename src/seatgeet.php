@@ -1,20 +1,14 @@
 <?php
+    
+    //configuro las options para curl y llamo a la funcion para iniciarlo
+    require_once('config/request_curl.php');
 
     $url='https://api.seatgeek.com/2/events?type=concert&performers.slug=mago-de-oz';
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_USERPWD, $_ENV['CLIENT_ID'].':'.$_ENV['SECRET']);
     
-    $response = curl_exec($ch);    
-    $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $curl_error = curl_error($ch); 
-    curl_close($ch);
-
-    //verifico errores
-    if($curl_error){
-        echo "Error en cURL: " . $curl_error;
-        exit;
-    }
+    $options = [
+        CURLOPT_USERPWD => $_ENV['CLIENT_ID'] . ':' . $_ENV['SECRET']
+    ];
+    list($http_status, $response) = makeCurlRequest($url, $options);
 
     if ($http_status == 200) {
         $data = json_decode($response, true);
