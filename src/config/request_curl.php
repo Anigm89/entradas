@@ -20,6 +20,9 @@
             exit;
         }
 
+        if ($http_status !== 200) {
+            echo "Error al acceder a la URL: Código de respuesta HTTP " . $http_status;
+        }
         return [$http_status, $response];
     }
 
