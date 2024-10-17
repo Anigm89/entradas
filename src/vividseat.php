@@ -13,10 +13,11 @@
         CURLOPT_COOKIEFILE => 'cookies.txt',
         CURLOPT_FOLLOWLOCATION => true
     ];
+    
     list($http_status, $html) = makeCurlRequest($urlFilter, $options);
 
-     if ($http_status !== 200 || !$html) {
-        echo "Error al acceder a la URL: Código de respuesta HTTP $http_status";
+    if ($http_status !== 200 || !$html) {
+        echo "<p>Error al acceder a la URL: Código de respuesta HTTP $http_status </p>";
     }
 
     // Cargo el HTML en el DOM
@@ -26,15 +27,17 @@
        // echo htmlspecialchars($html);
     if (!$dom) {
         echo "Error al cargar el DOM: " . $html;
-        exit;
     }
-    //saco el titulo del evento del meta data
-    $metaTitle = $dom->find('meta[property=og:title]', 0);
-    $title = $metaTitle ? $metaTitle->content : 'No encontrado';
+    else{
+        //saco el titulo del evento del meta data
+        $metaTitle = $dom->find('meta[property=og:title]', 0);
+        $title = $metaTitle ? $metaTitle->content : 'No encontrado';
 
-    //intento sacar la informacion de las entradas  por categorias
-    $categories = $dom->find('div[class=MuiTypography-root MuiTypography-small-medium styles_nowrap___p2Eb mui-6w2num]');
+        //intento sacar la informacion de las entradas  por categorias
+        $categories = $dom->find('div[class=MuiTypography-root MuiTypography-small-medium styles_nowrap___p2Eb mui-6w2num]');
 
+    }
+    
 ?>
 
 <div class="ej1">

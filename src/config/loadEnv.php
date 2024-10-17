@@ -20,8 +20,7 @@ function loadEnv($path) {
         $key = trim($key);
         $value = trim($value, '"\' ');
 
-        // Asigna la variable en $_ENV
-       // $_ENV[$key] = $value;
+        // Asigna la variable en $_ENV de forma que funcione tmb al publicarlo sin el .env
        if (!isset($_ENV[$key])) {
             $_ENV[$key] = $value;
         }
