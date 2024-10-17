@@ -8,11 +8,11 @@ para mostrar la información de las entradas de este evento he intentado acceder
 
 ## SeatGeet 
 En este ejercicio utilizo la APi de SeatGeet para mostrar la información de las entradas.
-Aquí he elegido un artista y he mostrado sus próximos conciertos con un enlace a la url de venta de entradas ya que no he encontrado un endpoint que muestre información sobre entradas.
+Aquí he elegido un artista y he mostrado sus próximos conciertos con un enlace a la url de venta de entradas ya que no he encontrado un endpoint que muestre información sobre entradas. <br>
 Utilizo un archivo .env para ocultar las claves de acceso a la API.
 
 # PUBLICACIÓN
-La app esta publicada en https://entradas.zeabur.app/
+La app está publicada en https://entradas.zeabur.app/
 
 # Entorno Local
-Este ejercicio está realizado con xampp por lo que se puede ver en local descomprimiendo la carpeta en htdocs sin necesidad de instaalr nada.
+Este ejercicio está realizado con Xampp por lo que se puede ver en local descomprimiendo la carpeta en htdocs sin necesidad de instalar nada.
