@@ -3,7 +3,7 @@
 
 function loadEnv($path) {
     if (!file_exists($path)) {
-        throw new Exception("Archivo .env no encontrado");
+        return "Archivo .env no encontrado";
     }
 
     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -21,7 +21,10 @@ function loadEnv($path) {
         $value = trim($value, '"\' ');
 
         // Asigna la variable en $_ENV
-        $_ENV[$key] = $value;
+       // $_ENV[$key] = $value;
+       if (!isset($_ENV[$key])) {
+            $_ENV[$key] = $value;
+        }
        
     }
 }
