@@ -17,7 +17,7 @@
     list($http_status, $html) = makeCurlRequest($urlFilter, $options);
 
     if ($http_status !== 200 || !$html) {
-        echo "<p>Error al acceder a la URL: Código de respuesta HTTP $http_status </p>";
+        echo "<script>console.error('Error al acceder a la URL: Código de respuesta HTTP $http_status ');</script>";
     }
 
     // Cargo el HTML en el DOM
@@ -26,7 +26,7 @@
        // var_dump($html);
        // echo htmlspecialchars($html);
     if (!$dom) {
-        echo "Error al cargar el DOM: " . $html;
+        echo "<script>console.error('Error al cargar el DOM: $html');</script>";
     }
     else{
         //saco el titulo del evento del meta data
