@@ -1,6 +1,6 @@
 <?php
     
-    //configuro las options para curl y llamo a la funcion para iniciarlo
+    //configuro las options para curl y llamo a la función para iniciarlo
     require_once('config/request_curl.php');
 
     $url='https://api.seatgeek.com/2/events?type=concert&performers.slug=mago-de-oz';
