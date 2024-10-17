@@ -35,16 +35,15 @@
 
         //intento sacar la informacion de las entradas  por categorias
         $categories = $dom->find('div[class=MuiTypography-root MuiTypography-small-medium styles_nowrap___p2Eb mui-6w2num]');
-
     }
     
 ?>
 
 <div class="ej1">
-    <h4>Evento: <?= htmlspecialchars($title) ?></h4>
+    <h4>Evento: <?= htmlspecialchars($title) ?? 'No disponible' ?></h4>
     
         <?php
-            if($categories){
+            if(!empty($categories)){
                 foreach($categories as $category) {
                     echo'<p> Sección:'. $category->plaintext . '</p>';
                 
