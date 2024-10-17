@@ -15,13 +15,17 @@
     ];
     list($http_status, $html) = makeCurlRequest($urlFilter, $options);
 
+    if ($http_status !== 200 || !$html) {
+        throw new Exception("Error al acceder a la URL: Código de respuesta HTTP $http_status");
+    }
+
     // Cargo el HTML en el DOM
     $dom = str_get_html($html);
 
        // var_dump($html);
        // echo htmlspecialchars($html);
     if (!$dom) {
-        echo "Error al cargar el DOM: " . htmlspecialchars($html);
+        echo "Error al cargar el DOM: " . $html;
         exit;
     }
     //saco el titulo del evento del meta data
