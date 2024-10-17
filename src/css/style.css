@@ -11,13 +11,13 @@ section{
     width: 90%;
     margin: auto;
 }
-section h1{
-    text-align: center;
-   
+.ej1{
+    margin-left: 25px;   
 }
 .title{
-    font-family: fantasy;
-    font-size: 2.2vw;
+    /* font-family: fantasy; */
+    font-size: 35px;
+    text-align: center;
 }
 .events{
     margin: auto;
@@ -28,9 +28,11 @@ section h1{
 }
 .subtitle{
     font-family: fantasy;
+    font-size: 21px;
+    text-align: center;
 }
 .dcha{
-    width: 30%;
+    width: 28%;
 }
 .dcha img{
     width: 100%;
@@ -68,4 +70,15 @@ ul{
 }
 .izq li:hover a{
     color: #9C27B0;
+}
+
+@media (max-width: 780px) {
+    .ej1{margin-left: 0;}
+    .events{
+        flex-direction: column;
+    }
+    .dcha, .izq{width: 100%;}
+    .dcha img{margin: 3% 0;}
+    .izq li{flex-direction: column;}
+    .izq p{font-size: 14px; margin: 0;}
 }

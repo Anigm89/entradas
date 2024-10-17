@@ -36,7 +36,7 @@
         ?>
     </div>
     <div class="izq">
-        <p class="subtitle">Próximos conciertos de Mago de Oz</p>
+        <h3 class="subtitle">Próximos conciertos de Mago de Oz</h3>
         <ul>
             <?php if (isset($data['events']) && !empty($data['events'])){ ?>
                 <?php foreach($data['events'] as $event) : ?>

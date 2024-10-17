@@ -33,7 +33,7 @@
 
 ?>
 
-<div>
+<div class="ej1">
     <h4>Evento: <?= htmlspecialchars($title) ?></h4>
     
         <?php
