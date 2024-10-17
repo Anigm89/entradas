@@ -40,7 +40,7 @@
 ?>
 
 <div class="ej1">
-    <h4>Evento: <?= htmlspecialchars($title) ?? 'No disponible' ?></h4>
+    <h4>Evento: <?= $title ?? 'No disponible' ?></h4>
     
         <?php
             if(!empty($categories)){
