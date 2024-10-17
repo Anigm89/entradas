@@ -21,7 +21,7 @@
         }
 
         if ($http_status !== 200) {
-            echo "<p> Error al acceder a la URL: Código de respuesta HTTP " . $http_status . "</p>";
+            echo "<script>console.error('Error al acceder a la URL: Código de respuesta HTTP {$http_status} ');</script>";
             return [false, null];  // Retorna un estado falso pero sigue ejecutándose
         }
         return [true, $response];  // Retorna éxito y la respuesta
