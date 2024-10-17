@@ -15,8 +15,8 @@
     ];
     list($http_status, $html) = makeCurlRequest($urlFilter, $options);
 
-    if ($http_status !== 200 || !$html) {
-        throw new Exception("Error al acceder a la URL: Código de respuesta HTTP $http_status");
+     if ($http_status !== 200 || !$html) {
+        echo "Error al acceder a la URL: Código de respuesta HTTP $http_status";
     }
 
     // Cargo el HTML en el DOM
